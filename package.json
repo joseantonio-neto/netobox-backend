@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "author": { "name": "José Antonio" },
+  "author": {
+    "name": "José Antonio"
+  },
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
