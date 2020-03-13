@@ -1,0 +1,6 @@
+POST http://localhost:8000/boxes
+Content-Type: application/json
+
+{
+    "title":"teste"
+}
