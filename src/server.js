@@ -9,6 +9,10 @@ const app = express();
 
 app.use(cors());
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const server = http.Server(app);
 const io = socket(server);
 
@@ -19,8 +23,9 @@ io.on('connection', socket => {
     console.log('OK');
 });
 
-mongoose.connect('mongodb+srv://netobox:netobox@cluster0-ur6ze.gcp.mongodb.net/test?retryWrites=true&w=majority', {
-    useNewUrlParser: true
+mongoose.connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 app.use((req, res, next) => {
